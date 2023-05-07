@@ -77,4 +77,30 @@ export default {
       return response.json({ message: error });
     }
   },
+  async deleteImovel(request: Request, response: Response){
+    try {
+      const { id } = request.params;
+      const imovelExist = await prisma.imoveis.findUnique({ where: { id: Number(id) }});
+      if(!imovelExist) {
+        return response.json({
+          error: true,
+          message: "Error: Imovel não encontrado"
+        });
+      }
+      const imovel = await prisma.imoveis.delete({
+        where: {
+          id: Number(request.params.id)
+        },
+      });
+
+      return response.json({
+        error: false,
+        message: "Sucesso ao deletar o imovel",
+        imovel
+      })
+
+    } catch(error) {
+      return response.json({ message: error })
+    }
+  },
 };
