@@ -12,8 +12,11 @@ app.get('/', (request, response) => {
     return response.send( {message: 'Olá mundo'})
 })
 
-app.post('/createUser', UserController.createUser )
-app.post('/createImovel', ImovelController.createImovel )
+app.post('/createUser', UserController.createUser ),
+app.post('/createImovel', ImovelController.createImovel ),
+app.get('/listImovel/:id', ImovelController.listImovel),
+app.put('/updateImovel', ImovelController.atualizarImovel),
+
 
 app.listen(PORT, () => {
   console.log(`Servidor 🪁 na 🚪:${PORT}`)
