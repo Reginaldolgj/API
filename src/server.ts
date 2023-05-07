@@ -1,6 +1,7 @@
 import Express from "express";
 import fs from "fs";
 import UserController from "./controllers/UserController";
+import ImovelController from "./controllers/ImovelController";
 
 
 const app = Express();
@@ -12,6 +13,7 @@ app.get('/', (request, response) => {
 })
 
 app.post('/createUser', UserController.createUser )
+app.post('/createImovel', ImovelController.createImovel )
 
 app.listen(PORT, () => {
   console.log(`Servidor 🪁 na 🚪:${PORT}`)

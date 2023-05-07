@@ -1,6 +1,4 @@
 # PROJETO
-yarn
-express
-react
-node
-prisma
+NODE + PRISMA 
+
+CRUD
